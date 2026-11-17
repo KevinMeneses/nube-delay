@@ -2,7 +2,7 @@ desc:Nube Delay - delay (5 estilos, a tempo, ping-pong, filtros, saturacion, mod
 //tags: delay echo tape analog bbd ping-pong tempo ducking freeze lofi
 //author: Kev Meneses + Claude (Claude Code)
 //license: GPL-3.0-or-later
-//version: 1.0.0
+//version: 1.0.1
 
 slider1:375<1,2000,0.1:log=300>-Tiempo (ms)
 slider2:9<0,14,1{Apagado,1/32,1/16T,1/16,1/8T,1/16.,1/8,1/4T,1/8.,1/4,1/2T,1/4.,1/2,1/2.,1/1}>-A tempo
