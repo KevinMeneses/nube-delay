@@ -1,6 +1,27 @@
+<!-- en -->
 # Nube Delay
 
-Delay para REAPER (JSFX, macOS/Windows/Linux), hermano de [Nube Verb](../NubeVerb) y los demás Nube.
+A free delay for [REAPER](https://www.reaper.fm), written as a JSFX (macOS / Windows / Linux), part of the
+[Nube plugins](https://github.com/KevinMeneses/nube-plugins).
+
+![Nube Delay](docs/captura.png)
+
+5 styles (Digital, Tape, Analog BBD, Lo-fi, Diffuse), ms or tempo-synced with tap, stereo / ping-pong / mono, right-channel offset, feedback with in-loop filters, saturation, modulation, diffusion, width, ducking, freeze, insert/send modes and 11 presets. Zero latency, ~1.6 % CPU.
+
+**Install** — with [ReaPack](https://reapack.com): *Extensions → ReaPack → Import repositories*, paste
+`https://github.com/KevinMeneses/nube-plugins/raw/main/index.xml`, then install **Nube Delay**. Or copy `nube_delay.jsfx`
+into `REAPER/Effects/Nube Delay/` (on macOS `./install.sh` links it). It shows up as **JS: Nube Delay**. The interface is in Spanish.
+
+**How it was made** — designed and built with [Claude Code](https://claude.com/claude-code). Since an AI can't
+listen, every feature is verified by rendering test cases inside REAPER and comparing them with the theory
+(`tests/run.sh`), plus mouse-driven UI tests (`tests/ui_test.py`).
+
+**License** — GPL-3.0-or-later (see `LICENSE`).
+
+---
+
+## Español
+Delay para REAPER (JSFX, macOS/Windows/Linux), hermano de [Nube Verb](https://github.com/KevinMeneses/nube-verb) y los demás Nube.
 
 ![Nube Delay](docs/captura.png)
 
@@ -58,3 +79,5 @@ Crea un enlace en `~/Library/Application Support/REAPER/Effects/Nube Delay/`. En
 - Lazo por canal: pasa-altos y pasa-bajos SVF de 2º orden → filtro del estilo → (Lo-fi: 8 bits y muestreo / 3) →
   saturación (aprox. de tanh) → bloqueo de DC → 4 pasa-todo de difusión → línea.
 - Mezcla de potencia constante (seca × cos, eco × sin), como Nube Verb.
+
+Nota sobre las pruebas: necesitan REAPER y Python con numpy, scipy y soundfile (`NUBE_PY=/ruta/a/python tests/run.sh`). Los casos con voz o música real usan grabaciones propias que no están en el repo (`tests/signals/`); sin ellas esos casos no se pueden correr.

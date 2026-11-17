@@ -1,6 +1,6 @@
 -- Carga Nube Delay en una pestaña nueva, renderiza cada caso y cierra la pestaña.
 -- Uso: REAPER -nonewinst tests/render_cases.lua   (escribe tests/out/*.wav y tests/out/log.txt)
-local ROOT = os.getenv("HOME") .. "/Music/NubeDelay/tests"
+local ROOT = debug.getinfo(1, "S").source:match("^@(.*)/[^/]*$")
 local OUT = ROOT .. "/out"
 local FX = "JS:Nube Delay/nube_delay.jsfx"
 local PRESET = 21
