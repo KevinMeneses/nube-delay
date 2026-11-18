@@ -2,7 +2,7 @@ desc:Nube Delay - delay (5 estilos, a tempo, ping-pong, filtros, saturacion, mod
 //tags: delay echo tape analog bbd ping-pong tempo ducking freeze lofi
 //author: Kev Meneses + Claude (Claude Code)
 //license: GPL-3.0-or-later
-//version: 1.0.1
+//version: 1.1.0
 
 slider1:375<1,2000,0.1:log=300>-Tiempo (ms)
 slider2:9<0,14,1{Apagado,1/32,1/16T,1/16,1/8T,1/16.,1/8,1/4T,1/8.,1/4,1/2T,1/4.,1/2,1/2.,1/1}>-A tempo
@@ -24,7 +24,7 @@ slider17:250<50,2000,1:log=300>-Ducking recuperacion (ms)
 slider18:0<0,1,1{Apagado,Encendido}>-Freeze
 slider19:0<0,1,1{Inserto,Envio (100% humedo)}>-Uso
 slider20:0<-24,12,0.1>-Salida (dB)
-slider21:0<0,11,1{-,Voz - negra con ducking (cinta),Voz rap - 1/8 con puntillo ping-pong,Voz - retorno negra (envio),Slapback (rap 90s),Dub / dancehall (feedback alto),Cinta vieja,Analogico oscuro (BBD),Lo-fi / telefono,Ambient difuso (pads),Doble ancho (Haas),Por defecto}>-Cargar preset
+slider21:0<0,23,1{-,Voz - negra con ducking (cinta),Voz rap - 1/8 con puntillo ping-pong,Voz - retorno negra (envio),Slapback (rap 90s),Dub / dancehall (feedback alto),Cinta vieja,Analogico oscuro (BBD),Lo-fi / telefono,Ambient difuso (pads),Doble ancho (Haas),Voz trap - 1/4 ping-pong con ducking,Voz drill - 1/8 tresillo,Eco de final de frase (1/2 envio),Throw de voz lejano (1/4. envio),Doblador corto (chorus de voz),Guitarra / pluck - 1/8. ancho,Rhodes / keys - cinta suave,Snare - eco 1/16 (trap),Hi-hat - 1/32 brillo,Pad - nube difusa (envio),Textura casi infinita (envio),Radio en la pared (lo-fi 1/4),Por defecto}>-Cargar preset
 
 in_pin:Entrada L
 in_pin:Entrada R
@@ -197,7 +197,7 @@ dL = dLt; dR = dRt; a_dg = dg_t; a_wg = wg_t; a_og = og_t; a_fz = 1;
 mph = 0; fph = 0;
 
 // ---------------------------------------------------------------- presets
-NPRESETS = 11;
+NPRESETS = 23;
 function preset_name(n)
 (
   n == 1 ? "Voz - negra con ducking (cinta)" :
@@ -210,7 +210,19 @@ function preset_name(n)
   n == 8 ? "Lo-fi / telefono" :
   n == 9 ? "Ambient difuso (pads)" :
   n == 10 ? "Doble ancho (Haas)" :
-  n == 11 ? "Por defecto" : "";
+  n == 11 ? "Voz trap - 1/4 ping-pong con ducking" :
+  n == 12 ? "Voz drill - 1/8 tresillo" :
+  n == 13 ? "Eco de final de frase (1/2 envio)" :
+  n == 14 ? "Throw de voz lejano (1/4. envio)" :
+  n == 15 ? "Doblador corto (chorus de voz)" :
+  n == 16 ? "Guitarra / pluck - 1/8. ancho" :
+  n == 17 ? "Rhodes / keys - cinta suave" :
+  n == 18 ? "Snare - eco 1/16 (trap)" :
+  n == 19 ? "Hi-hat - 1/32 brillo" :
+  n == 20 ? "Pad - nube difusa (envio)" :
+  n == 21 ? "Textura casi infinita (envio)" :
+  n == 22 ? "Radio en la pared (lo-fi 1/4)" :
+  n == 23 ? "Por defecto" : "";
 );
 // pr(estilo, ruteo, tempo (0 = ms), ms, feedback, mezcla, corte grave, corte agudo)
 function pr(st, ru, nt, ms, f, mx, lo, hi)
@@ -230,6 +242,18 @@ function load_preset(n)
   n == 8 ? ( pr(3, 0, 6, 375, 35, 25, 20, 20000); ) :
   n == 9 ? ( pr(4, 0, 11, 375, 65, 35, 150, 6000); sset(11, 30); sset(14, 150); ) :
   n == 10 ? ( pr(0, 0, 0, 12, 0, 30, 20, 20000); sset(3, 50); sset(14, 200); );
+  n == 11 ? ( pr(0, 1, 9, 375, 35, 20, 250, 6000); sset(15, 10); );
+  n == 12 ? ( pr(0, 1, 4, 375, 30, 15, 300, 5000); sset(15, 8); );
+  n == 13 ? ( pr(1, 0, 12, 375, 45, 100, 300, 4500); sset(19, 1); sset(15, 12); );
+  n == 14 ? ( pr(2, 1, 11, 375, 55, 100, 400, 3500); sset(19, 1); sset(10, 20); );
+  n == 15 ? ( pr(2, 0, 0, 25, 0, 25, 150, 8000); sset(3, 30); sset(11, 40); sset(12, 0.8); );
+  n == 16 ? ( pr(0, 1, 8, 375, 40, 25, 200, 7000); sset(14, 150); );
+  n == 17 ? ( pr(1, 0, 9, 375, 30, 18, 150, 5000); sset(10, 15); sset(11, 25); sset(12, 0.5); );
+  n == 18 ? ( pr(0, 0, 3, 375, 20, 15, 400, 8000); );
+  n == 19 ? ( pr(0, 1, 1, 375, 40, 12, 1000, 12000); );
+  n == 20 ? ( pr(4, 0, 11, 375, 75, 100, 200, 5000); sset(19, 1); sset(13, 80); sset(11, 30); sset(14, 180); );
+  n == 21 ? ( pr(4, 0, 9, 375, 90, 100, 150, 5000); sset(19, 1); sset(13, 60); sset(11, 20); sset(20, -4); );
+  n == 22 ? ( pr(3, 0, 9, 375, 40, 30, 500, 3000); sset(10, 40); );
   upd = 1;
 );
 
