@@ -6,7 +6,7 @@ A free delay for [REAPER](https://www.reaper.fm), written as a JSFX (macOS / Win
 
 ![Nube Delay](docs/captura.png)
 
-5 styles (Digital, Tape, Analog BBD, Lo-fi, Diffuse), ms or tempo-synced with tap, stereo / ping-pong / mono, right-channel offset, feedback with in-loop filters, saturation, modulation, diffusion, width, ducking, freeze, insert/send modes and 11 presets. Zero latency, ~1.6 % CPU.
+5 styles (Digital, Tape, Analog BBD, Lo-fi, Diffuse), ms or tempo-synced with tap, stereo / ping-pong / mono, right-channel offset, feedback with in-loop filters, saturation, modulation, diffusion, width, ducking, freeze, insert/send modes and 23 presets. Zero latency, ~1.6 % CPU.
 
 **Install** — with [ReaPack](https://reapack.com): *Extensions → ReaPack → Import repositories*, paste
 `https://github.com/KevinMeneses/nube-plugins/raw/main/index.xml`, then install **Nube Delay**. Or copy `nube_delay.jsfx`
@@ -69,7 +69,7 @@ Crea un enlace en `~/Library/Application Support/REAPER/Effects/Nube Delay/`. En
   a tempo (1/4 = 500 ms, 1/8. = 375 ms), ping-pong (cada eco solo en su lado), desfase R, mono, feedback 0 y 100 %,
   mezcla de potencia constante y sin latencia, cortes grave/agudo contra la fórmula, ducking (−12.0 dB con voz y
   vuelve en el silencio), ancho 0 %, saturación, modulación, difusión (pico −12 dB con la misma energía), freeze,
-  los 5 estilos y los 11 presets con la voz.
+  los 5 estilos y los 23 presets con la voz.
 - `tests/ui_test.py`: 17 pruebas de la interfaz con el mouse (incluye Tap y los menús). `tests/perf.lua`: CPU.
 
 ## Detalles técnicos

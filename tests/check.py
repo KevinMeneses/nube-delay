@@ -99,7 +99,7 @@ for st in range(5):
     inrange(f"estilo {st}: eco 1 cerca de 250 ms (ms)", (p - 12000) / 48, -0.5 if st == 0 else -6, 0.5 if st == 0 else 6)
     inrange(f"estilo {st}: se apaga (eco 5 < eco 1)", l5 - l, -300 if st == 3 else -80, -10)
 v = load("voz_seca")
-for p in range(1, 12):
+for p in range(1, 24):
     x = load(f"preset{p}"); dif = x - v
     inrange(f"preset {p}: hay eco (dB bajo la voz)", db(np.sqrt(np.mean(dif ** 2)) / np.sqrt(np.mean(v ** 2))), -40, 6)
 print("\nFALLAS:", fails)
